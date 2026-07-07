@@ -2,9 +2,10 @@
 # =====================================
 # DASHBOARD
 # =====================================
+from turtle import st
+
 import plotly.express as px
 import pandas as pd
-from streamlit import st
 
 from EstoqueTwo import conectar
 

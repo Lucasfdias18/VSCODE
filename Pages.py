@@ -10,5 +10,6 @@ Historico = st.Page("Historico.py", title="Histórico", icon="📜")
 # Set up navigation
 pg = st.navigation([Dashboard, Visualizar, Adicionar, Retirar, Historico])
 st.set_page_config(page_title="Estoque Two", page_icon=":material/edit:")
+
 # Run the selected page
-pg.run()
+pg.run
