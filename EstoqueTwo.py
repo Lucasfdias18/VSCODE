@@ -48,14 +48,16 @@ criar_tabelas()
 # =====================================
 # CARREGAR ESTOQUE
 # =====================================
+
 def carregar_estoque():
+
     conn = conectar()
 
     df = pd.read_sql(
         "SELECT * FROM produtos",
         conn
     )
-
+    
     conn.close()
 
     return df
@@ -274,52 +276,45 @@ elif menu == "Retirar Produto":
 
     estoque = carregar_estoque()
 
-    if "Produto" not in estoque.columns:
+    st.write(estoque)
+
+    if len(estoque) == 0:
 
         st.warning("Nenhum produto cadastrado.")
 
     else:
 
-        produtos = estoque["Produto"].tolist()
+        produtos = estoque["nome"].tolist()
 
-        if len(produtos) == 0:
+        produto = st.selectbox(
+            "Produto",
+            produtos
+        )
 
-            st.warning("Nenhum produto cadastrado.")
+        solicitante = st.text_input("Solicitante")
 
-        else:
+        local_retirada = st.text_input(
+            "Local de retirada"
+        )
 
-            produto = st.selectbox(
-                "Produto",
-                produtos
+        quantidade = st.number_input(
+            "Quantidade",
+            min_value=1
+        )
+
+        if st.button("Retirar"):
+
+            sucesso, mensagem = retirar_produto(
+                produto,
+                quantidade,
+                solicitante,
+                local_retirada
             )
 
-            solicitante = st.text_input(
-                "Solicitante"
-            )
-
-            local_retirada = st.text_input(
-                "Local de retirada"
-            )
-
-            quantidade = st.number_input(
-                "Quantidade",
-                min_value=1,
-                step=1
-            )
-
-            if st.button("Retirar"):
-
-                sucesso, mensagem = retirar_produto(
-                    produto,
-                    quantidade,
-                    solicitante,
-                    local_retirada
-                )
-
-                if sucesso:
-                    st.success(mensagem)
-                else:
-                    st.error(mensagem)
+            if sucesso:
+                st.success(mensagem)
+            else:
+                st.error(mensagem)
 # =====================================
 # HISTÓRICO
 # =====================================
