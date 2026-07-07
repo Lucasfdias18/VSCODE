@@ -1,11 +1,81 @@
 from streamlit import st
-from EstoqueTwo import carregar_estoque, retirar_produto
+from EstoqueTwo import carregar_estoque, conectar
 
 # =====================================
 # RETIRAR
 # =====================================
 st.markdown("# retirar Produto")
 st.sidebar.markdown("# retirar Produto")
+
+# =====================================
+# RETIRAR PRODUTO
+# =====================================
+
+def retirar_produto(
+        produto,
+        quantidade,
+        solicitante,
+        local_retirada
+):
+
+    conn = conectar()
+    cur = conn.cursor()
+
+    cur.execute(
+        "SELECT quantidade FROM produtos WHERE nome = %s",
+        (produto,)
+    )
+
+    resultado = cur.fetchone()
+
+    if not resultado:
+        conn.close()
+        return False, "Produto não encontrado"
+
+    estoque = resultado[0]
+
+    if quantidade > estoque:
+        conn.close()
+        return False, "Estoque insuficiente"
+
+    novo_estoque = estoque - quantidade
+
+    cur.execute(
+        """
+        UPDATE produtos
+        SET quantidade = %s
+        WHERE nome = %s
+        """,
+        (novo_estoque, produto)
+    )
+
+    cur.execute(
+        """
+        INSERT INTO movimentacoes
+        (
+            produto,
+            tipo,
+            quantidade,
+            solicitante,
+            local_retirada
+        )
+        VALUES
+        (%s,%s,%s,%s,%s)
+        """,
+        (
+            produto,
+            "SAIDA",
+            quantidade,
+            solicitante,
+            local_retirada
+        )
+    )
+
+    conn.commit()
+    cur.close()
+    conn.close()
+
+    return True, "Retirada realizada"
 
 estoque = carregar_estoque()
 

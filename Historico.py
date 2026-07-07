@@ -1,5 +1,6 @@
 from streamlit import st
-from EstoqueTwo import carregar_historico
+import pandas as pd
+from EstoqueTwo import carregar_historico, conectar
 
 
 # =====================================
@@ -8,6 +9,25 @@ from EstoqueTwo import carregar_historico
 st.markdown("# Histórico")
 st.sidebar.markdown("# Histórico")
 
+def carregar_historico():
+
+    conn = conectar()
+
+    df = pd.read_sql("""
+        SELECT
+            data,
+            produto,
+            tipo,
+            quantidade,
+            solicitante,
+            local_retirada
+        FROM movimentacoes
+        ORDER BY data DESC
+    """, conn)
+
+    conn.close()
+
+    return df
 st.subheader("Histórico de Movimentações")
 
 historico = carregar_historico()
