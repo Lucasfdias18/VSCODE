@@ -276,7 +276,13 @@ elif menu == "Retirar Produto":
 
     estoque = carregar_estoque()
 
-    produtos = estoque["Produto"].tolist()
+    
+    if "Produto" in estoque.columns:
+        produtos = estoque["Produto"].tolist()
+    else:
+        st.warning("Nenhum produto cadastrado.")
+    produtos = []
+
 
     if produtos:
 
