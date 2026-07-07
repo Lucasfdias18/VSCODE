@@ -228,7 +228,7 @@ menu = st.sidebar.selectbox(
         "Visualizar Estoque",
         "Adicionar Produto",
         "Retirar Produto",
-        "Histórico"
+        "Histórico",
         "Dashboard"
         
     ]
