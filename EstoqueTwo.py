@@ -280,8 +280,6 @@ elif menu == "Retirar Produto":
         produtos = estoque["Produto"].tolist()
     #else:
      #   st.warning("Nenhum produto cadastrado.")
-    produtos = []
-
 
     if produtos:
 
