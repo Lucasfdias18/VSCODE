@@ -5,7 +5,7 @@ from Database import carregar_estoque, conectar
 # RETIRAR
 # =====================================
 st.markdown("# Retirada de Produto")
-st.sidebar.markdown("# Retirar Produto", icon="📤")
+st.sidebar.markdown("# Retirar Produto 📤")
 
 # =====================================
 # RETIRAR PRODUTO

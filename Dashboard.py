@@ -8,7 +8,7 @@ import pandas as pd
 from Database import conectar
 
 st.markdown("# Dashboard")
-st.sidebar.markdown("# Dashboard", icon="📊")
+st.sidebar.markdown("# Dashboard 📊")
 
 st.subheader("📊 Dashboard de Consumo")
 

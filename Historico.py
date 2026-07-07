@@ -7,7 +7,7 @@ from Database import conectar
 # HISTÓRICO
 # =====================================
 st.markdown("# Histórico")
-st.sidebar.markdown("# Histórico", icon="📜")
+st.sidebar.markdown("# Histórico 📜")
 
 def carregar_historico():
 
