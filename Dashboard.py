@@ -3,8 +3,8 @@
 # DASHBOARD
 # =====================================
 import plotly.express as px
-
-from turtle import pd, st
+import pandas as pd
+from streamlit import st
 
 from EstoqueTwo import conectar
 

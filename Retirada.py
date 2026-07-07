@@ -1,4 +1,4 @@
-from turtle import st
+from streamlit import st
 from EstoqueTwo import carregar_estoque, retirar_produto
 
 # =====================================

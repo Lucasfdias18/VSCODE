@@ -4,7 +4,7 @@
 st.markdown("# Visualizar Estoque")
 st.sidebar.markdown("# Visualizar Estoque")
 
-from turtle import st
+from streamlit import st
 
 from EstoqueTwo import carregar_estoque
 
