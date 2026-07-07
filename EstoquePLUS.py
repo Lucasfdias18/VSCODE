@@ -12,7 +12,7 @@ if not os.path.exists(ARQUIVO):
 # Ler estoque
 df = pd.read_csv(ARQUIVO)
 
-st.title("📦 Controle de Estoque")
+st.title("Controle de Estoque")
 
 menu = st.sidebar.selectbox(
     "Menu",
