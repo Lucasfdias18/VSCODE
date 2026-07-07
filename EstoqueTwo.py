@@ -126,7 +126,7 @@ def adicionar_produto(produto, quantidade):
 # =====================================
 
 def retirar_produto(
-        produtos,
+        produto,
         quantidade,
         solicitante,
         local_retirada
@@ -137,7 +137,7 @@ def retirar_produto(
 
     cur.execute(
         "SELECT quantidade FROM produtos WHERE nome = %s",
-        (produtos,)
+        (produto,)
     )
 
     resultado = cur.fetchone()
