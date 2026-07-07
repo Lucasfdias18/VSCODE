@@ -5,7 +5,7 @@ from Database import conectar
 # ADICIONAR
 # =====================================
 st.markdown("# Adicionar Produto")
-st.sidebar.markdown("# Adicionar Produto")
+st.sidebar.markdown("# Adicionar Produto", icon="➕")
 
 # =====================================
 # ADICIONAR PRODUTO

@@ -4,8 +4,8 @@ from Database import carregar_estoque, conectar
 # =====================================
 # RETIRAR
 # =====================================
-st.markdown("# retirar Produto")
-st.sidebar.markdown("# retirar Produto")
+st.markdown("# Retirada de Produto")
+st.sidebar.markdown("# Retirar Produto", icon="📤")
 
 # =====================================
 # RETIRAR PRODUTO

@@ -1,13 +1,13 @@
 import streamlit as st
 import pandas as pd
-from Database import carregar_historico, conectar
+from Database import conectar
 
 
 # =====================================
 # HISTÓRICO
 # =====================================
 st.markdown("# Histórico")
-st.sidebar.markdown("# Histórico")
+st.sidebar.markdown("# Histórico", icon="📜")
 
 def carregar_historico():
 
