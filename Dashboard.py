@@ -2,7 +2,7 @@
 # =====================================
 # DASHBOARD
 # =====================================
-from turtle import st
+from streamlit import st
 import plotly.express as px
 import pandas as pd
 from EstoqueTwo import conectar

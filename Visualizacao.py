@@ -1,13 +1,10 @@
+from streamlit import st
+from EstoqueTwo import carregar_estoque
 # =====================================
 # VISUALIZAR
 # =====================================
 st.markdown("# Visualizar Estoque")
 st.sidebar.markdown("# Visualizar Estoque")
-
-from streamlit import st
-
-from EstoqueTwo import carregar_estoque
-
 
 st.subheader("Estoque Atual")
 
