@@ -48,12 +48,11 @@ criar_tabelas()
 # =====================================
 # CARREGAR ESTOQUE
 # =====================================
-
 def carregar_estoque():
     conn = conectar()
 
     df = pd.read_sql(
-        "SELECT nome AS Produto, quantidade AS Quantidade FROM produtos",
+        "SELECT * FROM produtos",
         conn
     )
 
@@ -275,47 +274,52 @@ elif menu == "Retirar Produto":
 
     estoque = carregar_estoque()
 
-    
-if "Produto" in estoque.columns:
-     produtos = estoque["Produto"].tolist()
-    #else:
-     #   st.warning("Nenhum produto cadastrado.")
+    if "Produto" not in estoque.columns:
 
-if produtos:
+        st.warning("Nenhum produto cadastrado.")
 
-        produto = st.selectbox(
-            "Produto",
-            produtos
-        )
+    else:
 
-        solicitante = st.text_input(
-            "Solicitante"
-        )
+        produtos = estoque["Produto"].tolist()
 
-        local_retirada = st.text_input(
-            "Local de retirada"
-        )
+        if len(produtos) == 0:
 
-        quantidade = st.number_input(
-            "Quantidade",
-            min_value=1,
-            step=1
-        )
+            st.warning("Nenhum produto cadastrado.")
 
-        if st.button("Retirar"):
+        else:
 
-            sucesso, mensagem = retirar_produto(
-                produto,
-                quantidade,
-                solicitante,
-                local_retirada
+            produto = st.selectbox(
+                "Produto",
+                produtos
             )
 
-            if sucesso:
-                st.success(mensagem)
-            else:
-                st.error(mensagem)
+            solicitante = st.text_input(
+                "Solicitante"
+            )
 
+            local_retirada = st.text_input(
+                "Local de retirada"
+            )
+
+            quantidade = st.number_input(
+                "Quantidade",
+                min_value=1,
+                step=1
+            )
+
+            if st.button("Retirar"):
+
+                sucesso, mensagem = retirar_produto(
+                    produto,
+                    quantidade,
+                    solicitante,
+                    local_retirada
+                )
+
+                if sucesso:
+                    st.success(mensagem)
+                else:
+                    st.error(mensagem)
 # =====================================
 # HISTÓRICO
 # =====================================
