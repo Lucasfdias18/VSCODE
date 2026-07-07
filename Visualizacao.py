@@ -1,5 +1,5 @@
-from streamlit import st
-from EstoqueTwo import carregar_estoque
+import streamlit as st
+from Database import carregar_estoque
 # =====================================
 # VISUALIZAR
 # =====================================

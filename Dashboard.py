@@ -2,10 +2,10 @@
 # =====================================
 # DASHBOARD
 # =====================================
-from streamlit import st
+import streamlit as st
 import plotly.express as px
 import pandas as pd
-from EstoqueTwo import conectar
+from Database import conectar
 
 st.markdown("# Dashboard")
 st.sidebar.markdown("# Dashboard")

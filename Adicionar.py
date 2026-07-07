@@ -1,5 +1,5 @@
-from streamlit import st
-from EstoqueTwo import conectar
+import streamlit as st
+from Database import conectar
 
 # =====================================
 # ADICIONAR

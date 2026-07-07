@@ -1,6 +1,6 @@
-from streamlit import st
+import streamlit as st
 import pandas as pd
-from EstoqueTwo import carregar_historico, conectar
+from Database import carregar_historico, conectar
 
 
 # =====================================
