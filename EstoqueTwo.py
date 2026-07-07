@@ -264,9 +264,8 @@ elif menu == "Adicionar Produto":
             quantidade
         )
 
-        st.success(
-            "Produto adicionado com sucesso!"
-        )
+        st.success(f"{produto} salvo no banco")
+    
 
 # =====================================
 # RETIRAR
