@@ -9,6 +9,3 @@ Historico = st.Page("Historico.py", title="Histórico", icon="📜")
 
 # Set up navigation
 pg = st.navigation([Dashboard, Visualizar, Adicionar, Retirar, Historico])
-
-# Run the selected page
-pg.run()
