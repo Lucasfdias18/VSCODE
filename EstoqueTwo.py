@@ -276,12 +276,12 @@ elif menu == "Retirar Produto":
     estoque = carregar_estoque()
 
     
-    if "Produto" in estoque.columns:
-        produtos = estoque["Produto"].tolist()
+if "Produto" in estoque.columns:
+     produtos = estoque["Produto"].tolist()
     #else:
      #   st.warning("Nenhum produto cadastrado.")
 
-    if produtos:
+if produtos:
 
         produto = st.selectbox(
             "Produto",
