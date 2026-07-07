@@ -7,7 +7,7 @@ import psycopg2
 # CONFIGURAÇÃO DO POSTGRESQL
 # =====================================
 
-DATABASE_URL = "postgresql://postgres:EstoquePLUS@db.mgickjwfczdfxbnyflbr.supabase.co:5432/postgres"
+DATABASE_URL = "postgresql://postgres.mgickjwfczdfxbnyflbr:EstoquePLUS@aws-1-sa-east-1.pooler.supabase.com:5432/postgres"
 #EstoquePLUS@2026
 def conectar():
     return psycopg2.connect(DATABASE_URL)

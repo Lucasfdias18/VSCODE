@@ -6,7 +6,7 @@ import os
 load_dotenv()
 
 # Fetch variables
-DATABASE_URL = os.getenv("postgresql://postgres:EstoquePLUS@db.mgickjwfczdfxbnyflbr.supabase.co:5432/postgres")
+DATABASE_URL= "postgresql://postgres.mgickjwfczdfxbnyflbr:EstoquePLUS@aws-1-sa-east-1.pooler.supabase.com:5432/postgres"
 
 # Connect to the database
 connection = psycopg2.connect(DATABASE_URL)
