@@ -277,9 +277,9 @@ elif menu == "Retirar Produto":
 
     
     if "Produto" in estoque.columns:
-        produtos = estoque["nome"].tolist()
-    else:
-        st.warning("Nenhum produto cadastrado.")
+        produtos = estoque["Produto"].tolist()
+    #else:
+     #   st.warning("Nenhum produto cadastrado.")
     produtos = []
 
 
