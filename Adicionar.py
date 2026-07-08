@@ -74,29 +74,25 @@ opcao = st.radio(
 )
 if opcao == "Novo Produto":
 
-    produto = st.text_input("Nome do Produto")
-    
-    id = st.number_input(
-        "ID do Produto",
-        min_value=1,
-        step=1    
-    )
-    quantidade = st.number_input(
+        produto = st.text_input("Nome do Produto")
+        
+        codigo = st.text_input("Código do Produto")
+
+        quantidade = st.number_input(
         "Quantidade Inicial",
-        min_value=1,
-        step=1
+        min_value=1
     )
     
 
-    if st.button("Cadastrar Produto"):
+if st.button("Cadastrar Produto"):
 
-        adicionar_produto(
-            id,
-            produto,
-            quantidade
-        )
+    adicionar_produto(
+        codigo,
+        produto,
+        quantidade
+    )
 
-        st.success(
+    st.success(
             f"{produto} cadastrado com sucesso!"
         )
     

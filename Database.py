@@ -20,12 +20,13 @@ def criar_tabelas():
     cur = conn.cursor()
 
     cur.execute("""
-        CREATE TABLE IF NOT EXISTS produtos (
-            id INTEGER PRIMARY KEY,
-            nome VARCHAR(200) UNIQUE NOT NULL,
-            quantidade INTEGER NOT NULL
-        )
-    """)
+            CREATE TABLE produtos (
+        id SERIAL PRIMARY KEY,
+        codigo VARCHAR(50) UNIQUE NOT NULL,
+        nome VARCHAR(200) UNIQUE NOT NULL,
+        quantidade INTEGER NOT NULL
+        );
+        """)
 
     cur.execute("""
         CREATE TABLE IF NOT EXISTS movimentacoes (
