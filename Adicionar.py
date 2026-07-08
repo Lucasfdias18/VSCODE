@@ -80,12 +80,12 @@ if st.button("Novo Produto"):
     )
 else:
     produto = st.selectbox(
-    "Produto",
-     produtos
-)
+        "Produto",
+        produtos
+    )
 
-quantidade = st.number_input(
- "Quantidade",
+    quantidade = st.number_input(
+        "Quantidade",
         min_value=1,
         step=1
     )
