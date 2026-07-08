@@ -78,6 +78,15 @@ if st.button("Novo Produto"):
         min_value=1,
         step=1
     )
+    if st.button("Adicionar"):
+
+        adicionar_produto(
+        produto,
+        quantidade
+        )
+
+    st.success(f"{produto} salvo no banco")
+    
 else:
     produto = st.selectbox(
         "Produto",
@@ -90,9 +99,9 @@ else:
         step=1
     )
 
-if st.button("Adicionar"):
+    if st.button("Adicionar"):
 
-    adicionar_produto(
+        adicionar_produto(
         produto,
         quantidade
         )
