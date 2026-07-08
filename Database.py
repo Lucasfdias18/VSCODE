@@ -22,22 +22,21 @@ def criar_tabelas():
     cur.execute("""
             CREATE TABLE produtos (
         id SERIAL PRIMARY KEY,
-        codigo VARCHAR(50) UNIQUE NOT NULL,
         nome VARCHAR(200) UNIQUE NOT NULL,
         quantidade INTEGER NOT NULL
         );
         """)
 
     cur.execute("""
-        CREATE TABLE IF NOT EXISTS movimentacoes (
-            id INTEGER PRIMARY KEY,
-            produto VARCHAR(200),
-            tipo VARCHAR(20),
-            quantidade INTEGER,
-            solicitante VARCHAR(200),
-            local_retirada VARCHAR(200),
-            data TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )
+            CREATE TABLE movimentacoes (
+        id SERIAL PRIMARY KEY,
+        produto VARCHAR(200),
+        tipo VARCHAR(20),
+        quantidade INTEGER,
+        solicitante VARCHAR(200),
+        local_retirada VARCHAR(200),
+        data TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
     """)
 
     conn.commit()

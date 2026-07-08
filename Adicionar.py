@@ -11,7 +11,7 @@ st.sidebar.markdown("# Adicionar Produto ")
 # ADICIONAR PRODUTO
 # =====================================
 
-def adicionar_produto(id, produto, quantidade):
+def adicionar_produto(codigo, produto, quantidade):
 
     conn = conectar()
     cur = conn.cursor()
@@ -22,32 +22,32 @@ def adicionar_produto(id, produto, quantidade):
     )
 
     resultado = cur.fetchone()
-
+    
     if resultado:
 
-        nova_qtd = resultado[0] + quantidade
+            nova_qtd = resultado[0] + quantidade
 
-        cur.execute(
+            cur.execute(
             """
             UPDATE produtos
             SET quantidade = %s
             WHERE nome = %s
             """,
             (nova_qtd, produto)
-        )
+            )
 
     else:
 
         cur.execute(
             """
             INSERT INTO produtos (
-                id,
+                codigo,
                 nome,
                 quantidade
             )
             VALUES (%s, %s, %s)
             """,
-            (id, produto, quantidade)
+            (codigo, produto, quantidade)
         )
 
     cur.execute(
@@ -122,6 +122,7 @@ elif opcao == "Adicionar Estoque":
         if st.button("Adicionar ao Estoque"):
 
             adicionar_produto(
+                id,
                 produto,
                 quantidade
             )
