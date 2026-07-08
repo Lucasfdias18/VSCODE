@@ -11,7 +11,7 @@ st.sidebar.markdown("# Adicionar Produto ")
 # ADICIONAR PRODUTO
 # =====================================
 
-def adicionar_produto(codigo, produto, quantidade):
+def adicionar_produto( produto, quantidade):
 
     conn = conectar()
     cur = conn.cursor()
@@ -41,13 +41,13 @@ def adicionar_produto(codigo, produto, quantidade):
         cur.execute(
             """
             INSERT INTO produtos (
-                codigo,
+        
                 nome,
                 quantidade
             )
-            VALUES (%s, %s, %s)
+            VALUES (%s, %s)
             """,
-            (codigo, produto, quantidade)
+            (produto, quantidade)
         )
 
     cur.execute(
@@ -75,8 +75,6 @@ opcao = st.radio(
 if opcao == "Novo Produto":
 
         produto = st.text_input("Nome do Produto")
-        
-        codigo = st.text_input("Código do Produto")
 
         quantidade = st.number_input(
         "Quantidade Inicial",
@@ -87,7 +85,6 @@ if opcao == "Novo Produto":
 if st.button("Cadastrar Produto"):
 
     adicionar_produto(
-        codigo,
         produto,
         quantidade
     )
@@ -126,7 +123,7 @@ elif opcao == "Adicionar Estoque":
                 produto,
                 quantidade
             )
-            
+
             st.success(
                 f"{quantidade} unidades adicionadas em {produto}"
             )
