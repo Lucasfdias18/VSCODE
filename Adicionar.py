@@ -67,8 +67,13 @@ def adicionar_produto(produto, quantidade):
     cur.close()
     conn.close()
 
-
-produto = st.text_input("Nome do Produto")
+estoque = carregar_estoque()
+produtos = estoque["nome"].tolist()
+    
+produto = st.selectbox(
+    "Produto",
+     produtos
+)
 
 quantidade = st.number_input(
  "Quantidade",
@@ -82,14 +87,6 @@ if st.button("Adicionar"):
         produto,
         quantidade
         )
-   
-    estoque = carregar_estoque()
-    produtos = estoque["nome"].tolist()
-    
-    produto = st.selectbox(
-        "Produto",
-         produtos
-     )
-    
+
     st.success(f"{produto} salvo no banco")
     
