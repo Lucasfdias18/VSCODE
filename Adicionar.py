@@ -70,6 +70,9 @@ def adicionar_produto(produto, quantidade):
 estoque = carregar_estoque()
 produtos = estoque["nome"].tolist()
     
+produto = st.text_input(
+    "Novo Produto"
+)    
 produto = st.selectbox(
     "Produto",
      produtos
