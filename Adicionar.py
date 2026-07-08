@@ -1,5 +1,5 @@
 import streamlit as st
-from Database import conectar
+from Database import carregar_estoque, conectar
 
 # =====================================
 # ADICIONAR
@@ -82,6 +82,14 @@ if st.button("Adicionar"):
         produto,
         quantidade
         )
-
+   
+    estoque = carregar_estoque()
+    produtos = estoque["nome"].tolist()
+    
+    produto = st.selectbox(
+        "Produto",
+         produtos
+     )
+    
     st.success(f"{produto} salvo no banco")
     
