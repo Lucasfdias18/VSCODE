@@ -67,44 +67,62 @@ def adicionar_produto(produto, quantidade):
     cur.close()
     conn.close()
 
-estoque = carregar_estoque()
-produtos = estoque["nome"].tolist()
-if st.button("Novo Produto"):
-    produto = st.text_input(
-        "Novo Produto"
-    )    
+opcao = st.radio(
+    "Tipo de entrada",
+    ["Novo Produto", "Adicionar Estoque"]
+)
+if opcao == "Novo Produto":
+
+    produto = st.text_input("Nome do Produto")
+
     quantidade = st.number_input(
-        "Quantidade",
+        "Quantidade Inicial",
         min_value=1,
         step=1
     )
-    if st.button("Adicionar"):
+
+    if st.button("Cadastrar Produto"):
 
         adicionar_produto(
-        produto,
-        quantidade
+            produto,
+            quantidade
         )
 
-    st.success(f"{produto} salvo no banco")
+        st.success(
+            f"{produto} cadastrado com sucesso!"
+        )
     
-if st.button("Adicionar Estoque"):
-    produto = st.selectbox(
-        "Produto",
-        produtos
-    )
+elif opcao == "Adicionar Estoque":
 
-    quantidade = st.number_input(
-        "Quantidade",
-        min_value=1,
-        step=1
-    )
+    estoque = carregar_estoque()
 
-    if st.button("Adicionar"):
+    if len(estoque) == 0:
 
-        adicionar_produto(
-        produto,
-        quantidade
+        st.warning("Nenhum produto cadastrado.")
+
+    else:
+
+        produtos = estoque["nome"].tolist()
+
+        produto = st.selectbox(
+            "Produto",
+            produtos
         )
 
-    st.success(f"{produto} salvo no banco")
+        quantidade = st.number_input(
+            "Quantidade a adicionar",
+            min_value=1,
+            step=1
+        )
+
+        if st.button("Adicionar ao Estoque"):
+
+            adicionar_produto(
+                produto,
+                quantidade
+            )
+
+            st.success(
+                f"{quantidade} unidades adicionadas em {produto}"
+            )
     
