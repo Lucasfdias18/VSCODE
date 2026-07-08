@@ -87,7 +87,7 @@ if st.button("Novo Produto"):
 
     st.success(f"{produto} salvo no banco")
     
-else:
+if st.button("Adicionar Estoque"):
     produto = st.selectbox(
         "Produto",
         produtos
