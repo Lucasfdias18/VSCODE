@@ -11,7 +11,7 @@ st.sidebar.markdown("# Adicionar Produto ")
 # ADICIONAR PRODUTO
 # =====================================
 
-def adicionar_produto(produto, quantidade):
+def adicionar_produto(id, produto, quantidade):
 
     conn = conectar()
     cur = conn.cursor()
