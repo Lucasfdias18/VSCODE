@@ -21,7 +21,7 @@ def criar_tabelas():
 
     cur.execute("""
         CREATE TABLE IF NOT EXISTS produtos (
-            id SERIAL PRIMARY KEY,
+            id INTEGER PRIMARY KEY,
             nome VARCHAR(200) UNIQUE NOT NULL,
             quantidade INTEGER NOT NULL
         )
@@ -29,7 +29,7 @@ def criar_tabelas():
 
     cur.execute("""
         CREATE TABLE IF NOT EXISTS movimentacoes (
-            id SERIAL PRIMARY KEY,
+            id INTEGER PRIMARY KEY,
             produto VARCHAR(200),
             tipo VARCHAR(20),
             quantidade INTEGER,

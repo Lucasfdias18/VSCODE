@@ -41,12 +41,13 @@ def adicionar_produto(produto, quantidade):
         cur.execute(
             """
             INSERT INTO produtos (
+                id,
                 nome,
                 quantidade
             )
-            VALUES (%s, %s)
+            VALUES (%s, %s, %s)
             """,
-            (produto, quantidade)
+            (id, produto, quantidade)
         )
 
     cur.execute(
