@@ -122,11 +122,11 @@ elif opcao == "Adicionar Estoque":
         if st.button("Adicionar ao Estoque"):
 
             adicionar_produto(
-                id,
+                codigo,
                 produto,
                 quantidade
             )
-
+            
             st.success(
                 f"{quantidade} unidades adicionadas em {produto}"
             )

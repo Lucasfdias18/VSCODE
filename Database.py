@@ -7,7 +7,7 @@ import psycopg2
 # =====================================
 
 DATABASE_URL = "postgresql://postgres.mgickjwfczdfxbnyflbr:EstoquePLUS@aws-1-sa-east-1.pooler.supabase.com:5432/postgres"
-#EstoquePLUS@2026
+#EstoquePLUS
 def conectar():
     return psycopg2.connect(DATABASE_URL)
 
@@ -20,7 +20,7 @@ def criar_tabelas():
     cur = conn.cursor()
 
     cur.execute("""
-            CREATE TABLE produtos (
+        CREATE TABLE produtos (
         id SERIAL PRIMARY KEY,
         nome VARCHAR(200) UNIQUE NOT NULL,
         quantidade INTEGER NOT NULL
@@ -28,7 +28,7 @@ def criar_tabelas():
         """)
 
     cur.execute("""
-            CREATE TABLE movimentacoes (
+        CREATE TABLE movimentacoes (
         id SERIAL PRIMARY KEY,
         produto VARCHAR(200),
         tipo VARCHAR(20),
@@ -36,8 +36,9 @@ def criar_tabelas():
         solicitante VARCHAR(200),
         local_retirada VARCHAR(200),
         data TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-    """)
+        );
+        """)
+
 
     conn.commit()
     cur.close()
